@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MiaUserMemory",
+  "type": "object",
+  "required": ["userId", "preferences", "unresolvedThreads"],
+  "properties": {
+    "userId": { "type": "string" },
+    "preferredName": { "type": ["string", "null"] },
+    "country": { "type": ["string", "null"] },
+    "city": { "type": ["string", "null"] },
+    "interests": { "type": "array", "items": { "type": "string" } },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "conversationStyle": { "enum": ["friendly", "playful", "reserved"] },
+        "messageLength": { "enum": ["short", "medium"] }
+      },
+      "additionalProperties": false
+    },
+    "unresolvedThreads": { "type": "array", "items": { "type": "string" } },
+    "lastInteractionAt": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "additionalProperties": false
+}
